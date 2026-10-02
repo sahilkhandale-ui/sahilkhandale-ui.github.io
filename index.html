@@ -1,271 +1,627 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahil Khandale | UI/UX & Video Editor</title>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/282981967?v=4">
+    <link rel="apple-touch-icon" href="https://avatars.githubusercontent.com/u/282981967?v=4">
 
-  <title>Sahil Khandale | UI/UX Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
-  <!-- External CSS -->
-  <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- Dark Mode Toggle -->
+    <div class="container">
 
-  <div class="toggle-wrap">
+        <header class="header">
+            <div class="header-top">
+                <img src="https://avatars.githubusercontent.com/u/282981967?v=4" alt="Sahil Khandale"
+                    class="profile-img">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div>
+                <h1>Sahil Khandale</h1>
+                <p class="bio">
+                    UI/UX Designer, Graphic Designer & Video Editor crafting clean digital experiences.
+                </p>
 
-    <div class="toggle" onclick="toggleMode()">
+                <div class="socials">
+                    <a href="mailto:sahilk927077@gmail.com" target="_blank" aria-label="Email"><i
+                            class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/sahilkhandale-ui" target="_blank" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.behance.net/sahilkhandaleui/projects" target="_blank" aria-label="Behance"><i
+                            class="fab fa-behance"></i></a>
+                    <a href="https://www.linkedin.com/in/sahilkhandale" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://ko-fi.com/sahilkdesign" target="_blank" aria-label="Ko-fi"><i
+                            class="fas fa-mug-hot"></i></a>
+                    <a href="https://paypal.me/sahilkdesign" target="_blank" aria-label="PayPal"><i
+                            class="fab fa-paypal"></i></a>
+                </div>
+            </div>
+        </header>
 
-      <i class="fas fa-moon"></i>
+        <nav class="tabs">
+            <button class="tab-btn active" data-target="about-tab">About Me</button>
+            <button class="tab-btn" data-target="uiux-tab">UI/UX Design <span class="tab-badge">In
+                    Progress</span></button>
+            <button class="tab-btn" data-target="video-tab">Video Editing</button>
+            <button class="tab-btn" data-target="graphics-tab">Graphics & Thumbnails</button>
+            <button class="tab-btn" data-target="products-tab">Products</button>
+        </nav>
 
-      <i class="fas fa-sun"></i>
+        <main>
 
-      <div class="toggle-circle"></div>
+            <div id="about-tab" class="tab-content active">
+
+                <section>
+                    <h2>About Me</h2>
+                    <div class="about-text">
+                        <p>
+                            I’m a multidisciplinary designer, video editor, and creative developer with a strong
+                            foundation in Computer Engineering. My work connects functional UI/UX design, visual
+                            storytelling, and technical understanding—crafting digital experiences that look modern,
+                            feel natural, and solve real user problems.
+                        </p>
+                        <p>
+                            In product design, I specialize in end-to-end design workflows: user research, wireframing,
+                            high-fidelity UI, design systems, and interactive prototypes. Whether designing scalable
+                            SaaS platforms or mobile apps, I prioritize usability, accessibility, and clean visual
+                            hierarchy.
+                        </p>
+                        <p>
+                            Beyond interfaces, I produce high-impact video edits, motion graphics, and brand identities.
+                            From cinematic cuts and pacing to sound design in FL Studio and generative AI workflows, I
+                            combine creative experimentation with structured design to bring digital ideas to life.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Tools I Use</h2>
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-pen-ruler"></i> UI/UX Design</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fab fa-figma"></i> Figma</span>
+                            <span class="badge"><i class="fas fa-pen-nib"></i> Adobe XD</span>
+                            <span class="badge"><i class="fas fa-gem"></i> Sketch</span>
+                            <span class="badge"><i class="fas fa-layer-group"></i> Framer</span>
+                            <span class="badge"><i class="fas fa-code"></i> Webflow</span>
+                            <span class="badge"><i class="fas fa-cube"></i> Spline 3D</span>
+                            <span class="badge"><i class="fas fa-mobile-screen"></i> ProtoPie</span>
+                            <span class="badge"><i class="fas fa-shapes"></i> Miro</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-photo-film"></i> Photo & Video Editing</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-video"></i> Premiere Pro</span>
+                            <span class="badge"><i class="fas fa-film"></i> After Effects</span>
+                            <span class="badge"><i class="fas fa-palette"></i> DaVinci Resolve</span>
+                            <span class="badge"><i class="fas fa-cut"></i> CapCut</span>
+                            <span class="badge"><i class="fas fa-clapperboard"></i> Final Cut Pro</span>
+                            <span class="badge"><i class="fas fa-image"></i> Photoshop</span>
+                            <span class="badge"><i class="fas fa-vector-square"></i> Illustrator</span>
+                            <span class="badge"><i class="fas fa-sliders-h"></i> Lightroom</span>
+                            <span class="badge"><i class="fas fa-cubes"></i> Blender 3D</span>
+                            <span class="badge"><i class="fas fa-brush"></i> Canva</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-music"></i> Audio & Music Production</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-sliders-h"></i> FL Studio</span>
+                            <span class="badge"><i class="fas fa-headphones"></i> Adobe Audition</span>
+                            <span class="badge"><i class="fas fa-wave-square"></i> Audacity</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-wand-magic-sparkles"></i> AI Tools</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-robot"></i> ChatGPT</span>
+                            <span class="badge"><i class="fas fa-brain"></i> Claude</span>
+                            <span class="badge"><i class="fas fa-paint-brush"></i> Midjourney</span>
+                            <span class="badge"><i class="fas fa-video"></i> Runway Gen-2</span>
+                            <span class="badge"><i class="fas fa-wand-magic-sparkles"></i> Adobe Firefly</span>
+                            <span class="badge"><i class="fas fa-image"></i> Stable Diffusion</span>
+                            <span class="badge"><i class="fas fa-microphone"></i> ElevenLabs</span>
+                            <span class="badge"><i class="fas fa-bolt"></i> Perplexity AI</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-code"></i> Coding & Development</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-laptop-code"></i> VS Code</span>
+                            <span class="badge"><i class="fas fa-terminal"></i> Cursor</span>
+                            <span class="badge"><i class="fas fa-rocket"></i> Antigravity</span>
+                            <span class="badge"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="badge"><i class="fab fa-css3-alt"></i> CSS3</span>
+                            <span class="badge"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="badge"><i class="fas fa-code"></i> TypeScript</span>
+                            <span class="badge"><i class="fab fa-react"></i> React</span>
+                            <span class="badge"><i class="fas fa-wind"></i> Tailwind CSS</span>
+                            <span class="badge"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="badge"><i class="fab fa-python"></i> Python</span>
+                            <span class="badge"><i class="fab fa-git-alt"></i> Git</span>
+                            <span class="badge"><i class="fab fa-github"></i> GitHub</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-briefcase"></i> Workflow & Collaboration</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fab fa-jira"></i> Jira</span>
+                            <span class="badge"><i class="fas fa-book"></i> Notion</span>
+                            <span class="badge"><i class="fab fa-slack"></i> Slack</span>
+                            <span class="badge"><i class="fab fa-trello"></i> Trello</span>
+                            <span class="badge"><i class="fab fa-discord"></i> Discord</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Work Experience</h2>
+                    <div class="timeline-card">
+                        <h3>UI/UX Designer, Graphic Designer & Video Editor</h3>
+                        <div class="timeline-meta">Freelance | Nagpur, India | Jan 2023 - Present</div>
+                        <ul class="timeline-points">
+                            <li>Delivering end-to-end UI/UX design solutions for diverse clients, focusing on intuitive
+                                user interfaces and seamless digital experiences.</li>
+                            <li>Creating high-retention video edits, motion graphics, and engaging visual content
+                                tailored for content creators and brands.</li>
+                            <li>Collaborating directly with stakeholders to establish brand identities, promotional
+                                graphics, wireframes, and interactive prototypes using Figma and Adobe Suite.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>User Experience Designer (Intern)</h3>
+                        <div class="timeline-meta">Tata STRIVE | Nagpur, India | Jul 2025 - Dec 2025</div>
+                        <ul class="timeline-points">
+                            <li>Spearheaded UI/UX design methodologies, taking ownership of user research, low-fidelity
+                                and high-fidelity wireframing, and interactive prototyping.</li>
+                            <li>Executed real-time projects focused on building highly intuitive, modern, and
+                                user-centric digital experiences.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>UI/UX Designer (Intern)</h3>
+                        <div class="timeline-meta">Vigo Technoworld Pvt Ltd | Nagpur, India | Jan 2025 - Jun 2025</div>
+                        <ul class="timeline-points">
+                            <li>Crafted and prototyped responsive mobile and web interfaces utilizing Figma and Adobe
+                                XD.</li>
+                            <li>Conducted extensive user research, conceptualized user personas to guide design
+                                decisions, and participated actively in usability testing.</li>
+                            <li>Partnered directly with development teams, ensuring precise technical implementation.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Education</h2>
+                    <div class="timeline-card">
+                        <h3>B.Tech in Computer Engineering</h3>
+                        <div class="timeline-meta">Rashtrasant Tukdoji Maharaj Nagpur University | 2021 - 2024</div>
+                        <p>CGPA: 7.0/10.0</p>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>Diploma in Computer Engineering</h3>
+                        <div class="timeline-meta">Nagpur Institute of Technology | 2019 - 2021</div>
+                        <p>Percentage: 85%</p>
+                    </div>
+                </section>
+            </div>
+
+            <div id="uiux-tab" class="tab-content">
+                <section>
+                    <h2>UI/UX Projects</h2>
+
+                    <div class="wip-banner">
+                        <i class="fas fa-hammer"></i>
+                        <div class="wip-banner-content">
+                            <h4><span class="pulse-dot"></span> Currently In Progress</h4>
+                            <p>I'm actively documenting comprehensive case studies, design systems, and interactive
+                                Figma prototypes for these projects. Full breakdowns and live previews will be published
+                                soon!</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-container">
+                        <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                        <div class="projects-grid">
+
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <span class="wip-card-pill"><i class="fas fa-clock"></i> In Progress</span>
+                                    <i class="fas fa-mobile-alt" style="font-size: 1.6rem; opacity: 0.45;"></i>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Emerald Ride</h3>
+                                    <p>Sustainable scooter rental app designed with seamless booking flows and
+                                        eco-friendly UX.</p>
+                                    <div class="btn-group">
+                                        <span class="btn wip-btn"><i class="fas fa-hourglass-half"></i> Case Study
+                                            Coming Soon</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <span class="wip-card-pill"><i class="fas fa-clock"></i> In Progress</span>
+                                    <i class="fas fa-heart-pulse" style="font-size: 1.6rem; opacity: 0.45;"></i>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Blood Donation App</h3>
+                                    <p>Emergency-focused healthcare application connecting donors and hospitals
+                                        efficiently.</p>
+                                    <div class="btn-group">
+                                        <span class="btn wip-btn"><i class="fas fa-hourglass-half"></i> Case Study
+                                            Coming Soon</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <span class="wip-card-pill"><i class="fas fa-clock"></i> In Progress</span>
+                                    <i class="fas fa-chart-line" style="font-size: 1.6rem; opacity: 0.45;"></i>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Finance Dashboard UI</h3>
+                                    <p>Modern dashboard interface with intuitive data visualization and smooth
+                                        navigation.</p>
+                                    <div class="btn-group">
+                                        <span class="btn wip-btn"><i class="fas fa-hourglass-half"></i> Case Study
+                                            Coming Soon</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="video-tab" class="tab-content">
+                <section>
+                    <h2>Selected Video Edits</h2>
+                    <div class="carousel-container">
+                        <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                        <div class="projects-grid" id="video-grid">
+
+                            <!-- Visible Cards (First 3) -->
+                            <div class="project-card">
+                                <div class="project-image"><i class="fas fa-play-circle"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Tech Vlog Edit</h3>
+                                    <p>Engaging b-roll sequences, crisp typography animations, and optimized pacing for
+                                        YouTube format.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn primary"><i class="fas fa-play"></i> Watch</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-image"><i class="fas fa-play-circle"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Cinematic Travel</h3>
+                                    <p>Advanced color grading, dynamic masking, and immersive spatial audio design
+                                        capturing global landscapes.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn primary"><i class="fas fa-play"></i> Watch</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-image"><i class="fas fa-play-circle"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Gameplay Highlights</h3>
+                                    <p>High-energy cuts synced perfectly to beatdrops, VFX integration, and seamless
+                                        transitions.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn primary"><i class="fas fa-play"></i> Watch</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hidden on Desktop initially, Always in Mobile Carousel -->
+                            <div class="project-card hidden-desktop">
+                                <div class="project-image"><i class="fas fa-play-circle"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Corporate Promo</h3>
+                                    <p>Professional brand storytelling, clean lower thirds, and sophisticated motion
+                                        graphics for startups.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn primary"><i class="fas fa-play"></i> Watch</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card hidden-desktop">
+                                <div class="project-image"><i class="fas fa-play-circle"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Music Video Edit</h3>
+                                    <p>Creative color processing, rhythmic cuts, and dynamic effects harmonized with
+                                        artist's vision.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn primary"><i class="fas fa-play"></i> Watch</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card hidden-desktop">
+                                <div class="project-image"><i class="fas fa-play-circle"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Gaming Montage</h3>
+                                    <p>High-octane compilation featuring precise timing, sound design overlays, and
+                                        custom motion blur.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn primary"><i class="fas fa-play"></i> Watch</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card hidden-desktop">
+                                <div class="project-image"><i class="fas fa-play-circle"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Tech Review Cut</h3>
+                                    <p>Clean studio editing with b-roll overlays, animated specs callouts, and audio
+                                        sweetening.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn primary"><i class="fas fa-play"></i> Watch</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card hidden-desktop">
+                                <div class="project-image"><i class="fas fa-play-circle"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Short-form Reels</h3>
+                                    <p>Attention-grabbing hooks, fast-paced editing, and engaging captions optimized for
+                                        TikTok/IG.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn primary"><i class="fas fa-play"></i> Watch</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="load-more-wrapper">
+                        <button class="load-more-btn toggle-grid-btn" data-target-grid="video-grid"
+                            data-expanded="false">Load More</button>
+                    </div>
+                </section>
+            </div>
+
+            <div id="graphics-tab" class="tab-content">
+                <section>
+                    <h2>Graphics & Thumbnails</h2>
+                    <div class="carousel-container">
+                        <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                        <div class="projects-grid" id="graphics-grid">
+
+                            <!-- Visible Cards (First 3) -->
+                            <div class="project-card">
+                                <div class="project-image"><i class="fas fa-hashtag"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Social Media Pack</h3>
+                                    <p>Cohesive templates for Instagram and Twitter posts, maintaining consistent brand
+                                        identity.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-image"><i class="fas fa-image"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>YouTube Thumbnail</h3>
+                                    <p>High-contrast, click-optimized thumbnail design for a competitive FPS gaming
+                                        video.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-image"><i class="fas fa-gamepad"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Stream Overlay</h3>
+                                    <p>Custom Twitch overlays including webcam borders, alerts, and offline screens.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hidden on Desktop initially, Always in Mobile Carousel (Cards 4-8) -->
+                            <div class="project-card hidden-desktop">
+                                <div class="project-image"><i class="fas fa-pen-fancy"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Brand Identity</h3>
+                                    <p>Complete branding package including logo design, color palette, and typography
+                                        guidelines.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card hidden-desktop">
+                                <div class="project-image"><i class="fas fa-microphone"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Podcast Cover</h3>
+                                    <p>Minimalist, eye-catching cover design scaled perfectly for Apple Podcasts and
+                                        Spotify.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card hidden-desktop">
+                                <div class="project-image"><i class="fas fa-calendar-alt"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Event Poster</h3>
+                                    <p>Print-ready, elegant layout highlighting key event details with a premium
+                                        aesthetic.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card hidden-desktop">
+                                <div class="project-image"><i class="fas fa-cube"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>3D Logo Design</h3>
+                                    <p>Modern isometric logo modeling and rendering for a tech startup.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card hidden-desktop">
+                                <div class="project-image"><i class="fas fa-chart-pie"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Infographic</h3>
+                                    <p>Visualizing complex data sets into simple, readable, and engaging graphical
+                                        representations.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="load-more-wrapper">
+                        <button class="load-more-btn toggle-grid-btn" data-target-grid="graphics-grid"
+                            data-expanded="false">Load More</button>
+                    </div>
+                </section>
+            </div>
+
+            <div id="products-tab" class="tab-content">
+                <section>
+                    <h2>My Digital Products</h2>
+                    <p style="margin-bottom: 2rem;">Check out my premium assets and templates available on Ko-fi to
+                        speed up your workflow.</p>
+
+                    <div class="carousel-container">
+                        <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                        <div class="projects-grid">
+
+                            <div class="project-card">
+                                <div class="project-image"><i class="fas fa-swatchbook"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Minimalist UI Kit Vol. 1</h3>
+                                    <p>A comprehensive component library for Figma featuring 100+ responsive elements
+                                        and auto-layout support.</p>
+                                    <div class="btn-group">
+                                        <a href="https://ko-fi.com/sahilkdesign" target="_blank" class="btn primary"><i
+                                                class="fas fa-shopping-cart"></i> Get on Ko-fi</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-image"><i class="fas fa-magic"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>Cinematic LUTs Pack</h3>
+                                    <p>15 custom color grading presets for Premiere Pro and DaVinci Resolve to instantly
+                                        elevate your footage.</p>
+                                    <div class="btn-group">
+                                        <a href="https://ko-fi.com/sahilkdesign" target="_blank" class="btn primary"><i
+                                                class="fas fa-shopping-cart"></i> Get on Ko-fi</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-image"><i class="fas fa-layer-group"
+                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-info">
+                                    <h3>YouTube Thumbnail Templates</h3>
+                                    <p>Fully editable PSD files optimized for high click-through rates across gaming and
+                                        tech niches.</p>
+                                    <div class="btn-group">
+                                        <a href="https://ko-fi.com/sahilkdesign" target="_blank" class="btn primary"><i
+                                                class="fas fa-shopping-cart"></i> Get on Ko-fi</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <section class="ending-line">
+                <h2>Thank You ✨</h2>
+                <p>
+                    Thanks for visiting my portfolio. I’m always excited to create meaningful and user-focused digital
+                    experiences.
+                </p>
+            </section>
+
+        </main>
+
+        <footer>
+            <span>© 2026 Sahil Khandale | UI/UX Portfolio</span>
+        </footer>
 
     </div>
 
-  </div>
-
-  <div class="container">
-
-    <!-- Header -->
-
-    <header>
-
-      <img src="https://avatars.githubusercontent.com/u/282981967?v=4"
-      alt="Sahil Khandale"
-      class="profile-img">
-
-      <h1>Sahil Khandale</h1>
-
-      <p>
-        UI/UX Designer creating clean,
-        modern and user-focused digital experiences.
-      </p>
-
-      <!-- Icons -->
-
-      <div class="top-icons">
-
-        <a href="mailto:sahilk927077@gmail.com">
-          <i class="fas fa-envelope"></i>
-        </a>
-
-        <a href="https://github.com/sahilkhandale-ui" target="_blank">
-          <i class="fab fa-github"></i>
-        </a>
-
-        <!-- Behance Icon -->
-
-        <a href="https://www.behance.net/sahilkhandaleui/projects" target="_blank">
-          <i class="fab fa-behance"></i>
-        </a>
-
-        <a href="https://www.linkedin.com/in/sahilkhandale" target="_blank">
-          <i class="fab fa-linkedin"></i>
-        </a>
-
-      </div>
-
-    </header>
-
-    <!-- About -->
-
-    <section class="about">
-
-      <h2>About Me</h2>
-
-      <p>
-        Passionate UI/UX designer focused on building intuitive,
-        visually engaging, and user-centered digital products.
-        I enjoy transforming complex problems into simple
-        and seamless user experiences.
-      </p>
-
-    </section>
-
-    <!-- Projects -->
-
-    <section>
-
-      <h2>Projects</h2>
-
-      <div class="projects">
-
-        <!-- Project 1 -->
-
-        <div class="project">
-
-          <div class="project-image">
-            16:9 Project Preview
-          </div>
-
-          <div class="project-content">
-
-            <h3>Emerald Ride</h3>
-
-            <p>
-              Sustainable scooter rental app designed with
-              seamless booking flows and eco-friendly UX.
-            </p>
-
-            <div class="project-buttons">
-
-              <a href="#" class="project-btn">
-                <i class="fas fa-file-alt"></i>
-                View Case Study
-              </a>
-
-              <a href="#" class="project-btn secondary">
-                <i class="fas fa-eye"></i>
-                Preview Design
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <!-- Project 2 -->
-
-        <div class="project">
-
-          <div class="project-image">
-            16:9 Project Preview
-          </div>
-
-          <div class="project-content">
-
-            <h3>Blood Donation App</h3>
-
-            <p>
-              Emergency-focused healthcare application
-              connecting donors and hospitals efficiently.
-            </p>
-
-            <div class="project-buttons">
-
-              <a href="#" class="project-btn">
-                <i class="fas fa-file-alt"></i>
-                View Case Study
-              </a>
-
-              <a href="#" class="project-btn secondary">
-                <i class="fas fa-eye"></i>
-                Preview Design
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <!-- Project 3 -->
-
-        <div class="project">
-
-          <div class="project-image">
-            16:9 Project Preview
-          </div>
-
-          <div class="project-content">
-
-            <h3>Finance Dashboard UI</h3>
-
-            <p>
-              Modern dashboard interface with intuitive
-              data visualization and smooth navigation.
-            </p>
-
-            <div class="project-buttons">
-
-              <a href="#" class="project-btn">
-                <i class="fas fa-file-alt"></i>
-                View Case Study
-              </a>
-
-              <a href="#" class="project-btn secondary">
-                <i class="fas fa-eye"></i>
-                Preview Design
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- Education -->
-
-    <section>
-
-      <h2>Education</h2>
-
-      <div class="education-card">
-
-        <h3>B.Tech in Computer Engineering</h3>
-
-        <p>
-          Rashtrasant Tukdoji Maharaj Nagpur University
-          <br>
-          CGPA: 7.0 | 2021 - 2024
-        </p>
-
-      </div>
-
-      <div class="education-card">
-
-        <h3>Diploma in Computer Engineering</h3>
-
-        <p>
-          Nagpur Institute of Technology
-          <br>
-          CGPA: 8.5 | 2019 - 2021
-        </p>
-
-      </div>
-
-    </section>
-
-    <!-- Ending -->
-
-    <section class="ending-line">
-
-      <h2>Thank You ✨</h2>
-
-      <p>
-        Thanks for visiting my portfolio.
-        I’m always excited to create meaningful
-        and user-focused digital experiences.
-      </p>
-
-    </section>
-
-  </div>
-
-  <footer>
-    © 2026 Sahil Khandale | UI/UX Portfolio
-  </footer>
-
-  <!-- External JavaScript -->
-  <script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
+
 </html>
