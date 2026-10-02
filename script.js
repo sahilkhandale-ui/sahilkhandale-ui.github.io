@@ -30,6 +30,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- Scroll Line Helper Function ---
+    function updateScrollLine(scrollContainer, trackEl, thumbEl) {
+        if (!scrollContainer || !trackEl || !thumbEl) return;
+        const clientWidth = scrollContainer.clientWidth;
+        const scrollWidth = scrollContainer.scrollWidth;
+        const scrollLeft = scrollContainer.scrollLeft;
+
+        if (scrollWidth <= clientWidth) {
+            thumbEl.style.width = '100%';
+            thumbEl.style.transform = 'translateX(0px)';
+            return;
+        }
+
+        const ratio = clientWidth / scrollWidth;
+        const trackWidth = trackEl.clientWidth;
+        const thumbWidth = Math.max(trackWidth * ratio, 28);
+        thumbEl.style.width = `${thumbWidth}px`;
+
+        const maxScroll = scrollWidth - clientWidth;
+        const progress = Math.min(Math.max(scrollLeft / maxScroll, 0), 1);
+        const maxThumbTranslate = trackWidth - thumbWidth;
+        const translateX = progress * maxThumbTranslate;
+
+        thumbEl.style.transform = `translateX(${translateX}px)`;
+    }
+
+    // --- Mobile Tabs Scroll Line Logic ---
+    const tabsNav = document.querySelector('.tabs');
+    const tabsScrollLine = document.querySelector('.tabs-scroll-line');
+    const tabsScrollThumb = document.querySelector('.tabs-scroll-thumb');
+
+    if (tabsNav && tabsScrollLine && tabsScrollThumb) {
+        tabsNav.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) {
+                updateScrollLine(tabsNav, tabsScrollLine, tabsScrollThumb);
+            }
+        }, { passive: true });
+
+        // Click track to scroll tabs
+        tabsScrollLine.addEventListener('click', (e) => {
+            if (window.innerWidth > 768) return;
+            const rect = tabsScrollLine.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const ratio = clickX / rect.width;
+            const maxScroll = tabsNav.scrollWidth - tabsNav.clientWidth;
+            tabsNav.scrollTo({
+                left: ratio * maxScroll,
+                behavior: 'smooth'
+            });
+        });
+    }
+
     // --- SPA Tab Switching Logic ---
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -46,8 +98,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (targetContent) {
                 targetContent.classList.add('active');
-                // Reset carousel positions when a tab is opened (mobile only)
-                resetAllCarousels();
+
+                if (window.innerWidth <= 768) {
+                    // Center the active tab in view on mobile
+                    btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                    setTimeout(() => {
+                        if (tabsNav && tabsScrollLine && tabsScrollThumb) {
+                            updateScrollLine(tabsNav, tabsScrollLine, tabsScrollThumb);
+                        }
+                    }, 100);
+
+                    // Refresh carousel in the activated tab
+                    const carouselInTab = targetContent.querySelector('.carousel-container');
+                    if (carouselInTab) {
+                        const grid = carouselInTab.querySelector('.projects-grid');
+                        const line = carouselInTab.querySelector('.carousel-scroll-line');
+                        const thumb = carouselInTab.querySelector('.carousel-scroll-thumb');
+                        if (grid) {
+                            grid.scrollLeft = 0;
+                            setTimeout(() => {
+                                updateScrollLine(grid, line, thumb);
+                            }, 60);
+                        }
+                    }
+                }
             }
         });
     });
@@ -82,116 +156,107 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Mobile Carousel Logic ---
+    // --- Mobile Card Carousel Scroll Line & Drag Logic ---
     const carousels = document.querySelectorAll('.carousel-container');
-    const carouselStates = new Map(); // Store state for each carousel
 
     function initializeCarousels() {
         carousels.forEach(container => {
-            const track = container.querySelector('.projects-grid');
-            const cards = Array.from(track.querySelectorAll('.project-card'));
-            const prevBtn = container.querySelector('.prev-btn');
-            const nextBtn = container.querySelector('.next-btn');
+            const grid = container.querySelector('.projects-grid');
+            const line = container.querySelector('.carousel-scroll-line');
+            const thumb = container.querySelector('.carousel-scroll-thumb');
 
-            carouselStates.set(container, {
-                currentIndex: 0,
-                track: track,
-                cards: cards
+            if (!grid || !line || !thumb) return;
+
+            // Scroll listener for real-time thumb tracking
+            grid.addEventListener('scroll', () => {
+                if (window.innerWidth <= 768) {
+                    updateScrollLine(grid, line, thumb);
+                }
+            }, { passive: true });
+
+            // Click on scroll line to scroll smoothly
+            line.addEventListener('click', (e) => {
+                if (window.innerWidth > 768) return;
+                const rect = line.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const ratio = clickX / rect.width;
+                const maxScroll = grid.scrollWidth - grid.clientWidth;
+                grid.scrollTo({
+                    left: ratio * maxScroll,
+                    behavior: 'smooth'
+                });
             });
 
-            function updateTransform() {
-                const state = carouselStates.get(container);
-                if (window.innerWidth <= 768) {
-                    // Translate by index * 100% plus the gap (1.5rem)
-                    state.track.style.transform = `translateX(calc(-${state.currentIndex * 100}% - ${state.currentIndex * 1.5}rem))`;
-                } else {
-                    state.track.style.transform = '';
-                }
-            }
-
-            if (nextBtn && prevBtn) {
-                nextBtn.addEventListener('click', () => {
-                    if (window.innerWidth > 768) return;
-                    const state = carouselStates.get(container);
-                    // Loop logic: Next on last goes to first
-                    state.currentIndex = (state.currentIndex + 1) % state.cards.length;
-                    updateTransform();
-                });
-
-                prevBtn.addEventListener('click', () => {
-                    if (window.innerWidth > 768) return;
-                    const state = carouselStates.get(container);
-                    // Loop logic: Prev on first goes to last
-                    state.currentIndex = (state.currentIndex - 1 + state.cards.length) % state.cards.length;
-                    updateTransform();
-                });
-            }
-
-            // Touch Swipe Logic
+            // Mouse Drag Support on mobile / responsive mode
+            let isDown = false;
             let startX = 0;
-            let currentX = 0;
+            let scrollStart = 0;
 
-            container.addEventListener('touchstart', (e) => {
+            grid.addEventListener('mousedown', (e) => {
                 if (window.innerWidth > 768) return;
-                startX = e.touches[0].clientX;
-            }, { passive: true });
+                isDown = true;
+                grid.style.scrollBehavior = 'auto';
+                startX = e.pageX - grid.offsetLeft;
+                scrollStart = grid.scrollLeft;
+            });
 
-            container.addEventListener('touchmove', (e) => {
-                if (window.innerWidth > 768) return;
-                currentX = e.touches[0].clientX;
-            }, { passive: true });
-
-            container.addEventListener('touchend', () => {
-                if (window.innerWidth > 768) return;
-                const diffX = startX - currentX;
-                const state = carouselStates.get(container);
-
-                if (Math.abs(diffX) > 50 && currentX !== 0) { // Threshold for swipe
-                    if (diffX > 0) {
-                        // Swiped left -> Next
-                        state.currentIndex = (state.currentIndex + 1) % state.cards.length;
-                    } else {
-                        // Swiped right -> Prev
-                        state.currentIndex = (state.currentIndex - 1 + state.cards.length) % state.cards.length;
-                    }
-                    updateTransform();
+            window.addEventListener('mouseup', () => {
+                if (isDown) {
+                    isDown = false;
+                    grid.style.scrollBehavior = 'smooth';
                 }
-                startX = 0;
-                currentX = 0;
+            });
+
+            grid.addEventListener('mouseleave', () => {
+                if (isDown) {
+                    isDown = false;
+                    grid.style.scrollBehavior = 'smooth';
+                }
+            });
+
+            grid.addEventListener('mousemove', (e) => {
+                if (!isDown || window.innerWidth > 768) return;
+                e.preventDefault();
+                const x = e.pageX - grid.offsetLeft;
+                const walk = (x - startX) * 1.4;
+                grid.scrollLeft = scrollStart - walk;
             });
         });
     }
 
-    // Function to reset carousel views when resizing or changing tabs
-    function resetAllCarousels() {
-        carousels.forEach(container => {
-            const state = carouselStates.get(container);
-            if (state) {
-                state.currentIndex = 0;
-                if (window.innerWidth <= 768) {
-                    state.track.style.transform = `translateX(0)`;
-                } else {
-                    state.track.style.transform = '';
-                }
+    function updateAllScrollLines() {
+        if (window.innerWidth <= 768) {
+            if (tabsNav && tabsScrollLine && tabsScrollThumb) {
+                updateScrollLine(tabsNav, tabsScrollLine, tabsScrollThumb);
             }
-        });
+            carousels.forEach(container => {
+                const grid = container.querySelector('.projects-grid');
+                const line = container.querySelector('.carousel-scroll-line');
+                const thumb = container.querySelector('.carousel-scroll-thumb');
+                if (container.closest('.tab-content.active') && grid && line && thumb) {
+                    updateScrollLine(grid, line, thumb);
+                }
+            });
+        }
     }
 
     initializeCarousels();
+    // Allow DOM to settle before initial sizing
+    setTimeout(updateAllScrollLines, 100);
 
-    // Handle switching back to desktop cleanly
+    // Handle resize between desktop and mobile smoothly
     window.addEventListener('resize', () => {
-        carousels.forEach(container => {
-            const state = carouselStates.get(container);
-            if (state) {
-                if (window.innerWidth <= 768) {
-                    state.track.style.transform = `translateX(calc(-${state.currentIndex * 100}% - ${state.currentIndex * 1.5}rem))`;
-                } else {
-                    // Clear inline styles so CSS grid takes over
-                    state.track.style.transform = '';
+        if (window.innerWidth > 768) {
+            // Reset any inline styles on grids so desktop CSS grid takes over cleanly
+            carousels.forEach(container => {
+                const grid = container.querySelector('.projects-grid');
+                if (grid) {
+                    grid.style.scrollBehavior = '';
                 }
-            }
-        });
+            });
+        } else {
+            updateAllScrollLines();
+        }
     });
 
 });
