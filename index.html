@@ -20,47 +20,99 @@
 </head>
 
 <body>
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
     <div class="container">
 
         <header class="header">
             <div class="header-top">
-                <img src="https://avatars.githubusercontent.com/u/282981967?v=4" alt="Sahil Khandale"
-                    class="profile-img">
-                <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
-                    <i class="fas fa-moon"></i>
-                </button>
+                <div class="profile-group">
+                    <div class="profile-hud-wrap">
+                        <img src="https://avatars.githubusercontent.com/u/282981967?v=4" alt="Sahil Khandale"
+                            class="profile-img">
+                        <span class="hud-corner hud-tl" aria-hidden="true"></span>
+                        <span class="hud-corner hud-tr" aria-hidden="true"></span>
+                        <span class="hud-corner hud-bl" aria-hidden="true"></span>
+                        <span class="hud-corner hud-br" aria-hidden="true"></span>
+                        <span class="hud-scanline" aria-hidden="true"></span>
+                        <div class="hud-rec" aria-hidden="true"><span class="rec-dot"></span>REC</div>
+                    </div>
+                    <div class="status-pill">
+                        <span class="status-pulse" aria-hidden="true"></span>
+                        <span class="status-label">Available for work</span>
+                        <span class="status-sep">/</span>
+                        <div class="audio-eq" aria-hidden="true" title="Studio Signal Active">
+                            <span class="eq-bar bar-1"></span>
+                            <span class="eq-bar bar-2"></span>
+                            <span class="eq-bar bar-3"></span>
+                            <span class="eq-bar bar-4"></span>
+                        </div>
+                        <span class="status-sep">/</span>
+                        <span class="status-time" id="liveTime">Nagpur, IN</span>
+                    </div>
+                </div>
+                <div class="header-controls">
+                    <button id="motionToggle" class="motion-toggle" aria-label="Disable Animations" aria-pressed="false" title="Disable Animations (Press M)">
+                        <i class="fas fa-pause"></i>
+                        <span class="kbd-hint" aria-hidden="true">M</span>
+                    </button>
+                    <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme" title="Toggle Theme (Press T)">
+                        <i class="fas fa-moon"></i>
+                        <span class="kbd-hint" aria-hidden="true">T</span>
+                    </button>
+                </div>
             </div>
             <div>
                 <h1>Sahil Khandale</h1>
-                <p class="bio">
-                    UI/UX Designer, Graphic Designer & Video Editor crafting clean digital experiences.
-                </p>
+                <p class="bio">UI/UX Designer, Graphic Designer & Video Editor crafting clean digital experiences.</p>
 
-                <div class="socials">
-                    <a href="mailto:sahilk927077@gmail.com" target="_blank" aria-label="Email"><i
-                            class="fas fa-envelope"></i></a>
-                    <a href="https://github.com/sahilkhandale-ui" target="_blank" aria-label="GitHub"><i
-                            class="fab fa-github"></i></a>
-                    <a href="https://www.behance.net/sahilkhandaleui/projects" target="_blank" aria-label="Behance"><i
-                            class="fab fa-behance"></i></a>
-                    <a href="https://www.linkedin.com/in/sahilkhandale" target="_blank" aria-label="LinkedIn"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="https://ko-fi.com/sahilkdesign" target="_blank" aria-label="Ko-fi"><i
-                            class="fas fa-mug-hot"></i></a>
-                    <a href="https://paypal.me/sahilkdesign" target="_blank" aria-label="PayPal"><i
-                            class="fab fa-paypal"></i></a>
+                <div class="header-actions">
+                    <div class="socials">
+                        <a href="mailto:sahilk927077@gmail.com" target="_blank" aria-label="Email"><i
+                                class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/sahilkhandale-ui" target="_blank" aria-label="GitHub"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.behance.net/sahilkhandaleui/projects" target="_blank"
+                            aria-label="Behance"><i class="fab fa-behance"></i></a>
+                        <a href="https://www.linkedin.com/in/sahilkhandale" target="_blank" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://ko-fi.com/sahilkdesign" target="_blank" aria-label="Ko-fi"><i
+                                class="fas fa-mug-hot"></i></a>
+                    </div>
                 </div>
             </div>
         </header>
 
+        <!-- Infinite Brutalist Marquee Tape Strip -->
+        <div class="marquee-strip" aria-hidden="true">
+            <div class="marquee-track">
+                <span class="marquee-item">UI/UX SYSTEMS</span><span class="m-sep">//</span>
+                <span class="marquee-item">DAVINCI RESOLVE</span><span class="m-sep">//</span>
+                <span class="marquee-item">FIGMA PROTOTYPES</span><span class="m-sep">//</span>
+                <span class="marquee-item">4K TIMELINE</span><span class="m-sep">//</span>
+                <span class="marquee-item">MOTION DESIGN</span><span class="m-sep">//</span>
+                <span class="marquee-item">BRUTALIST CODE</span><span class="m-sep">//</span>
+                <span class="marquee-item">COLOR GRADING</span><span class="m-sep">//</span>
+                <span class="marquee-item">HIGH SPEED RENDER</span><span class="m-sep">//</span>
+                <span class="marquee-item">AFTER EFFECTS</span><span class="m-sep">//</span>
+                <span class="marquee-item">UI/UX SYSTEMS</span><span class="m-sep">//</span>
+                <span class="marquee-item">DAVINCI RESOLVE</span><span class="m-sep">//</span>
+                <span class="marquee-item">FIGMA PROTOTYPES</span><span class="m-sep">//</span>
+                <span class="marquee-item">4K TIMELINE</span><span class="m-sep">//</span>
+                <span class="marquee-item">MOTION DESIGN</span><span class="m-sep">//</span>
+                <span class="marquee-item">BRUTALIST CODE</span><span class="m-sep">//</span>
+                <span class="marquee-item">COLOR GRADING</span><span class="m-sep">//</span>
+                <span class="marquee-item">HIGH SPEED RENDER</span><span class="m-sep">//</span>
+                <span class="marquee-item">AFTER EFFECTS</span><span class="m-sep">//</span>
+            </div>
+        </div>
+
         <nav class="tabs">
-            <button class="tab-btn active" data-target="about-tab">About Me</button>
-            <button class="tab-btn" data-target="uiux-tab">UI/UX Design <span class="tab-badge">In
-                    Progress</span></button>
+            <button class="tab-btn active" data-target="uiux-tab">UI/UX Design <span class="tab-badge">In Progress</span></button>
             <button class="tab-btn" data-target="video-tab">Video Editing</button>
             <button class="tab-btn" data-target="graphics-tab">Graphics & Thumbnails</button>
             <button class="tab-btn" data-target="products-tab">Products</button>
+            <button class="tab-btn" data-target="about-tab">About Me</button>
         </nav>
         <div class="tabs-scroll-line" aria-hidden="true">
             <div class="tabs-scroll-thumb"></div>
@@ -68,171 +120,7 @@
 
         <main>
 
-            <div id="about-tab" class="tab-content active">
-
-                <section>
-                    <h2>About Me</h2>
-                    <div class="about-text">
-                        <p>
-                            I’m a multidisciplinary designer, video editor, and creative developer with a strong
-                            foundation in Computer Engineering. My work connects functional UI/UX design, visual
-                            storytelling, and technical understanding—crafting digital experiences that look modern,
-                            feel natural, and solve real user problems.
-                        </p>
-                        <p>
-                            In product design, I specialize in end-to-end design workflows: user research, wireframing,
-                            high-fidelity UI, design systems, and interactive prototypes. Whether designing scalable
-                            SaaS platforms or mobile apps, I prioritize usability, accessibility, and clean visual
-                            hierarchy.
-                        </p>
-                        <p>
-                            Beyond interfaces, I produce high-impact video edits, motion graphics, and brand identities.
-                            From cinematic cuts and pacing to sound design in FL Studio and generative AI workflows, I
-                            combine creative experimentation with structured design to bring digital ideas to life.
-                        </p>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>Tools I Use</h2>
-                    <div class="tools-category">
-                        <h3 class="tools-category-title"><i class="fas fa-pen-ruler"></i> UI/UX Design</h3>
-                        <div class="tools-badges">
-                            <span class="badge"><i class="fab fa-figma"></i> Figma</span>
-                            <span class="badge"><i class="fas fa-pen-nib"></i> Adobe XD</span>
-                            <span class="badge"><i class="fas fa-gem"></i> Sketch</span>
-                            <span class="badge"><i class="fas fa-layer-group"></i> Framer</span>
-                            <span class="badge"><i class="fas fa-code"></i> Webflow</span>
-                            <span class="badge"><i class="fas fa-cube"></i> Spline 3D</span>
-                            <span class="badge"><i class="fas fa-mobile-screen"></i> ProtoPie</span>
-                            <span class="badge"><i class="fas fa-shapes"></i> Miro</span>
-                        </div>
-                    </div>
-
-                    <div class="tools-category">
-                        <h3 class="tools-category-title"><i class="fas fa-photo-film"></i> Photo & Video Editing</h3>
-                        <div class="tools-badges">
-                            <span class="badge"><i class="fas fa-video"></i> Premiere Pro</span>
-                            <span class="badge"><i class="fas fa-film"></i> After Effects</span>
-                            <span class="badge"><i class="fas fa-palette"></i> DaVinci Resolve</span>
-                            <span class="badge"><i class="fas fa-cut"></i> CapCut</span>
-                            <span class="badge"><i class="fas fa-clapperboard"></i> Final Cut Pro</span>
-                            <span class="badge"><i class="fas fa-image"></i> Photoshop</span>
-                            <span class="badge"><i class="fas fa-vector-square"></i> Illustrator</span>
-                            <span class="badge"><i class="fas fa-sliders-h"></i> Lightroom</span>
-                            <span class="badge"><i class="fas fa-cubes"></i> Blender 3D</span>
-                            <span class="badge"><i class="fas fa-brush"></i> Canva</span>
-                        </div>
-                    </div>
-
-                    <div class="tools-category">
-                        <h3 class="tools-category-title"><i class="fas fa-music"></i> Audio & Music Production</h3>
-                        <div class="tools-badges">
-                            <span class="badge"><i class="fas fa-sliders-h"></i> FL Studio</span>
-                            <span class="badge"><i class="fas fa-headphones"></i> Adobe Audition</span>
-                            <span class="badge"><i class="fas fa-wave-square"></i> Audacity</span>
-                        </div>
-                    </div>
-
-                    <div class="tools-category">
-                        <h3 class="tools-category-title"><i class="fas fa-wand-magic-sparkles"></i> AI Tools</h3>
-                        <div class="tools-badges">
-                            <span class="badge"><i class="fas fa-robot"></i> ChatGPT</span>
-                            <span class="badge"><i class="fas fa-brain"></i> Claude</span>
-                            <span class="badge"><i class="fas fa-paint-brush"></i> Midjourney</span>
-                            <span class="badge"><i class="fas fa-video"></i> Runway Gen-2</span>
-                            <span class="badge"><i class="fas fa-wand-magic-sparkles"></i> Adobe Firefly</span>
-                            <span class="badge"><i class="fas fa-image"></i> Stable Diffusion</span>
-                            <span class="badge"><i class="fas fa-microphone"></i> ElevenLabs</span>
-                            <span class="badge"><i class="fas fa-bolt"></i> Perplexity AI</span>
-                        </div>
-                    </div>
-
-                    <div class="tools-category">
-                        <h3 class="tools-category-title"><i class="fas fa-code"></i> Coding & Development</h3>
-                        <div class="tools-badges">
-                            <span class="badge"><i class="fas fa-laptop-code"></i> VS Code</span>
-                            <span class="badge"><i class="fas fa-terminal"></i> Cursor</span>
-                            <span class="badge"><i class="fas fa-rocket"></i> Antigravity</span>
-                            <span class="badge"><i class="fab fa-html5"></i> HTML5</span>
-                            <span class="badge"><i class="fab fa-css3-alt"></i> CSS3</span>
-                            <span class="badge"><i class="fab fa-js"></i> JavaScript</span>
-                            <span class="badge"><i class="fas fa-code"></i> TypeScript</span>
-                            <span class="badge"><i class="fab fa-react"></i> React</span>
-                            <span class="badge"><i class="fas fa-wind"></i> Tailwind CSS</span>
-                            <span class="badge"><i class="fab fa-node-js"></i> Node.js</span>
-                            <span class="badge"><i class="fab fa-python"></i> Python</span>
-                            <span class="badge"><i class="fab fa-git-alt"></i> Git</span>
-                            <span class="badge"><i class="fab fa-github"></i> GitHub</span>
-                        </div>
-                    </div>
-
-                    <div class="tools-category">
-                        <h3 class="tools-category-title"><i class="fas fa-briefcase"></i> Workflow & Collaboration</h3>
-                        <div class="tools-badges">
-                            <span class="badge"><i class="fab fa-jira"></i> Jira</span>
-                            <span class="badge"><i class="fas fa-book"></i> Notion</span>
-                            <span class="badge"><i class="fab fa-slack"></i> Slack</span>
-                            <span class="badge"><i class="fab fa-trello"></i> Trello</span>
-                            <span class="badge"><i class="fab fa-discord"></i> Discord</span>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>Work Experience</h2>
-                    <div class="timeline-card">
-                        <h3>UI/UX Designer, Graphic Designer & Video Editor</h3>
-                        <div class="timeline-meta">Freelance | Nagpur, India | Jan 2023 - Present</div>
-                        <ul class="timeline-points">
-                            <li>Delivering end-to-end UI/UX design solutions for diverse clients, focusing on intuitive
-                                user interfaces and seamless digital experiences.</li>
-                            <li>Creating high-retention video edits, motion graphics, and engaging visual content
-                                tailored for content creators and brands.</li>
-                            <li>Collaborating directly with stakeholders to establish brand identities, promotional
-                                graphics, wireframes, and interactive prototypes using Figma and Adobe Suite.</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-card">
-                        <h3>User Experience Designer (Intern)</h3>
-                        <div class="timeline-meta">Tata STRIVE | Nagpur, India | Jul 2025 - Dec 2025</div>
-                        <ul class="timeline-points">
-                            <li>Spearheaded UI/UX design methodologies, taking ownership of user research, low-fidelity
-                                and high-fidelity wireframing, and interactive prototyping.</li>
-                            <li>Executed real-time projects focused on building highly intuitive, modern, and
-                                user-centric digital experiences.</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-card">
-                        <h3>UI/UX Designer (Intern)</h3>
-                        <div class="timeline-meta">Vigo Technoworld Pvt Ltd | Nagpur, India | Jan 2025 - Jun 2025</div>
-                        <ul class="timeline-points">
-                            <li>Crafted and prototyped responsive mobile and web interfaces utilizing Figma and Adobe
-                                XD.</li>
-                            <li>Conducted extensive user research, conceptualized user personas to guide design
-                                decisions, and participated actively in usability testing.</li>
-                            <li>Partnered directly with development teams, ensuring precise technical implementation.
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>Education</h2>
-                    <div class="timeline-card">
-                        <h3>B.Tech in Computer Engineering</h3>
-                        <div class="timeline-meta">Rashtrasant Tukdoji Maharaj Nagpur University | 2021 - 2024</div>
-                        <p>CGPA: 7.0/10.0</p>
-                    </div>
-                    <div class="timeline-card">
-                        <h3>Diploma in Computer Engineering</h3>
-                        <div class="timeline-meta">Nagpur Institute of Technology | 2019 - 2021</div>
-                        <p>Percentage: 85%</p>
-                    </div>
-                </section>
-            </div>
-
-            <div id="uiux-tab" class="tab-content">
+            <div id="uiux-tab" class="tab-content active">
                 <section>
                     <h2>UI/UX Projects</h2>
 
@@ -244,6 +132,7 @@
                                 Figma prototypes for these projects. Full breakdowns and live previews will be published
                                 soon!</p>
                         </div>
+                        <div class="wip-hazard-tape" aria-hidden="true"></div>
                     </div>
 
                     <div class="carousel-container">
@@ -252,10 +141,7 @@
                         <div class="projects-grid">
 
                             <div class="project-card">
-                                <div class="project-image">
-                                    <span class="wip-card-pill"><i class="fas fa-clock"></i> In Progress</span>
-                                    <i class="fas fa-mobile-alt" style="font-size: 1.6rem; opacity: 0.45;"></i>
-                                </div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Emerald Ride</h3>
                                     <p>Sustainable scooter rental app designed with seamless booking flows and
@@ -268,10 +154,7 @@
                             </div>
 
                             <div class="project-card">
-                                <div class="project-image">
-                                    <span class="wip-card-pill"><i class="fas fa-clock"></i> In Progress</span>
-                                    <i class="fas fa-heart-pulse" style="font-size: 1.6rem; opacity: 0.45;"></i>
-                                </div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Blood Donation App</h3>
                                     <p>Emergency-focused healthcare application connecting donors and hospitals
@@ -284,10 +167,7 @@
                             </div>
 
                             <div class="project-card">
-                                <div class="project-image">
-                                    <span class="wip-card-pill"><i class="fas fa-clock"></i> In Progress</span>
-                                    <i class="fas fa-chart-line" style="font-size: 1.6rem; opacity: 0.45;"></i>
-                                </div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Finance Dashboard UI</h3>
                                     <p>Modern dashboard interface with intuitive data visualization and smooth
@@ -305,6 +185,47 @@
                         </div>
                     </div>
                 </section>
+
+                <section>
+                    <h2>Tools & Skills</h2>
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-pen-ruler"></i> Design & Prototyping</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fab fa-figma"></i> Figma</span>
+                            <span class="badge"><i class="fas fa-pen-nib"></i> Adobe XD</span>
+                            <span class="badge"><i class="fas fa-gem"></i> Sketch</span>
+                            <span class="badge"><i class="fas fa-layer-group"></i> Framer</span>
+                            <span class="badge"><i class="fas fa-code"></i> Webflow</span>
+                            <span class="badge"><i class="fas fa-cube"></i> Spline 3D</span>
+                            <span class="badge"><i class="fas fa-mobile-screen"></i> ProtoPie</span>
+                            <span class="badge"><i class="fas fa-shapes"></i> Miro</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-code"></i> Frontend & Prototyping Code</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="badge"><i class="fab fa-css3-alt"></i> CSS3</span>
+                            <span class="badge"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="badge"><i class="fas fa-code"></i> TypeScript</span>
+                            <span class="badge"><i class="fab fa-react"></i> React</span>
+                            <span class="badge"><i class="fas fa-wind"></i> Tailwind CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-drafting-compass"></i> Design Capabilities</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-users"></i> User Research</span>
+                            <span class="badge"><i class="fas fa-drafting-compass"></i> Wireframing</span>
+                            <span class="badge"><i class="fas fa-hand-pointer"></i> Interactive Prototyping</span>
+                            <span class="badge"><i class="fas fa-cubes"></i> Design Systems</span>
+                            <span class="badge"><i class="fas fa-check-double"></i> Usability Testing</span>
+                            <span class="badge"><i class="fas fa-sitemap"></i> Information Architecture</span>
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <div id="video-tab" class="tab-content">
@@ -317,8 +238,7 @@
 
                             <!-- Visible Cards (First 3) -->
                             <div class="project-card">
-                                <div class="project-image"><i class="fas fa-play-circle"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Tech Vlog Edit</h3>
                                     <p>Engaging b-roll sequences, crisp typography animations, and optimized pacing for
@@ -330,8 +250,7 @@
                             </div>
 
                             <div class="project-card">
-                                <div class="project-image"><i class="fas fa-play-circle"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Cinematic Travel</h3>
                                     <p>Advanced color grading, dynamic masking, and immersive spatial audio design
@@ -343,8 +262,7 @@
                             </div>
 
                             <div class="project-card">
-                                <div class="project-image"><i class="fas fa-play-circle"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Gameplay Highlights</h3>
                                     <p>High-energy cuts synced perfectly to beatdrops, VFX integration, and seamless
@@ -357,8 +275,7 @@
 
                             <!-- Hidden on Desktop initially, Always in Mobile Carousel -->
                             <div class="project-card hidden-desktop">
-                                <div class="project-image"><i class="fas fa-play-circle"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Corporate Promo</h3>
                                     <p>Professional brand storytelling, clean lower thirds, and sophisticated motion
@@ -370,8 +287,7 @@
                             </div>
 
                             <div class="project-card hidden-desktop">
-                                <div class="project-image"><i class="fas fa-play-circle"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Music Video Edit</h3>
                                     <p>Creative color processing, rhythmic cuts, and dynamic effects harmonized with
@@ -383,8 +299,7 @@
                             </div>
 
                             <div class="project-card hidden-desktop">
-                                <div class="project-image"><i class="fas fa-play-circle"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Gaming Montage</h3>
                                     <p>High-octane compilation featuring precise timing, sound design overlays, and
@@ -396,8 +311,7 @@
                             </div>
 
                             <div class="project-card hidden-desktop">
-                                <div class="project-image"><i class="fas fa-play-circle"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Tech Review Cut</h3>
                                     <p>Clean studio editing with b-roll overlays, animated specs callouts, and audio
@@ -409,8 +323,7 @@
                             </div>
 
                             <div class="project-card hidden-desktop">
-                                <div class="project-image"><i class="fas fa-play-circle"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Short-form Reels</h3>
                                     <p>Attention-grabbing hooks, fast-paced editing, and engaging captions optimized for
@@ -432,6 +345,44 @@
                             data-expanded="false">Load More</button>
                     </div>
                 </section>
+
+                <section>
+                    <h2>Tools & Skills</h2>
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-film"></i> Video Editing & Motion Graphics</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-video"></i> Premiere Pro</span>
+                            <span class="badge"><i class="fas fa-film"></i> After Effects</span>
+                            <span class="badge"><i class="fas fa-palette"></i> DaVinci Resolve</span>
+                            <span class="badge"><i class="fas fa-cut"></i> CapCut</span>
+                            <span class="badge"><i class="fas fa-clapperboard"></i> Final Cut Pro</span>
+                            <span class="badge"><i class="fas fa-cubes"></i> Blender 3D</span>
+                            <span class="badge"><i class="fas fa-video"></i> Runway Gen-2</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-music"></i> Audio & Sound Production</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-sliders-h"></i> FL Studio</span>
+                            <span class="badge"><i class="fas fa-headphones"></i> Adobe Audition</span>
+                            <span class="badge"><i class="fas fa-wave-square"></i> Audacity</span>
+                            <span class="badge"><i class="fas fa-microphone"></i> ElevenLabs</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-sliders-h"></i> Editing Capabilities</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-palette"></i> Color Grading & LUTs</span>
+                            <span class="badge"><i class="fas fa-bezier-curve"></i> Motion Graphics</span>
+                            <span class="badge"><i class="fas fa-volume-up"></i> Sound Design & Mixing</span>
+                            <span class="badge"><i class="fas fa-stopwatch"></i> Pacing & Retention</span>
+                            <span class="badge"><i class="fas fa-camera"></i> Multi-Camera Sync</span>
+                            <span class="badge"><i class="fab fa-youtube"></i> YouTube Optimization</span>
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <div id="graphics-tab" class="tab-content">
@@ -444,104 +395,96 @@
 
                             <!-- Visible Cards (First 3) -->
                             <div class="project-card">
-                                <div class="project-image"><i class="fas fa-hashtag"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Social Media Pack</h3>
                                     <p>Cohesive templates for Instagram and Twitter posts, maintaining consistent brand
                                         identity.</p>
                                     <div class="btn-group">
-                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                        <a href="#" class="btn primary"><i class="fas fa-search-plus"></i> View Full</a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="project-card">
-                                <div class="project-image"><i class="fas fa-image"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>YouTube Thumbnail</h3>
                                     <p>High-contrast, click-optimized thumbnail design for a competitive FPS gaming
                                         video.</p>
                                     <div class="btn-group">
-                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                        <a href="#" class="btn primary"><i class="fas fa-search-plus"></i> View Full</a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="project-card">
-                                <div class="project-image"><i class="fas fa-gamepad"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Stream Overlay</h3>
                                     <p>Custom Twitch overlays including webcam borders, alerts, and offline screens.</p>
                                     <div class="btn-group">
-                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                        <a href="#" class="btn primary"><i class="fas fa-search-plus"></i> View Full</a>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Hidden on Desktop initially, Always in Mobile Carousel (Cards 4-8) -->
                             <div class="project-card hidden-desktop">
-                                <div class="project-image"><i class="fas fa-pen-fancy"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Brand Identity</h3>
                                     <p>Complete branding package including logo design, color palette, and typography
                                         guidelines.</p>
                                     <div class="btn-group">
-                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                        <a href="#" class="btn primary"><i class="fas fa-search-plus"></i> View Full</a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="project-card hidden-desktop">
-                                <div class="project-image"><i class="fas fa-microphone"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Podcast Cover</h3>
                                     <p>Minimalist, eye-catching cover design scaled perfectly for Apple Podcasts and
                                         Spotify.</p>
                                     <div class="btn-group">
-                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                        <a href="#" class="btn primary"><i class="fas fa-search-plus"></i> View Full</a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="project-card hidden-desktop">
-                                <div class="project-image"><i class="fas fa-calendar-alt"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Event Poster</h3>
                                     <p>Print-ready, elegant layout highlighting key event details with a premium
                                         aesthetic.</p>
                                     <div class="btn-group">
-                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                        <a href="#" class="btn primary"><i class="fas fa-search-plus"></i> View Full</a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="project-card hidden-desktop">
-                                <div class="project-image"><i class="fas fa-cube"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>3D Logo Design</h3>
                                     <p>Modern isometric logo modeling and rendering for a tech startup.</p>
                                     <div class="btn-group">
-                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                        <a href="#" class="btn primary"><i class="fas fa-search-plus"></i> View Full</a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="project-card hidden-desktop">
-                                <div class="project-image"><i class="fas fa-chart-pie"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Infographic</h3>
                                     <p>Visualizing complex data sets into simple, readable, and engaging graphical
                                         representations.</p>
                                     <div class="btn-group">
-                                        <a href="#" class="btn"><i class="fas fa-search-plus"></i> View Full</a>
+                                        <a href="#" class="btn primary"><i class="fas fa-search-plus"></i> View Full</a>
                                     </div>
                                 </div>
                             </div>
@@ -557,13 +500,46 @@
                             data-expanded="false">Load More</button>
                     </div>
                 </section>
+
+                <section>
+                    <h2>Tools & Skills</h2>
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-image"></i> Graphic Design & Photo Editing</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-image"></i> Photoshop</span>
+                            <span class="badge"><i class="fas fa-vector-square"></i> Illustrator</span>
+                            <span class="badge"><i class="fas fa-sliders-h"></i> Lightroom</span>
+                            <span class="badge"><i class="fas fa-brush"></i> Canva</span>
+                            <span class="badge"><i class="fas fa-cubes"></i> Blender 3D</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-wand-magic-sparkles"></i> Generative AI & Visuals</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-paint-brush"></i> Midjourney</span>
+                            <span class="badge"><i class="fas fa-wand-magic-sparkles"></i> Adobe Firefly</span>
+                            <span class="badge"><i class="fas fa-image"></i> Stable Diffusion</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-shapes"></i> Graphic Capabilities</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-chart-line"></i> High-CTR Thumbnails</span>
+                            <span class="badge"><i class="fas fa-fingerprint"></i> Brand Identity</span>
+                            <span class="badge"><i class="fas fa-pen-fancy"></i> Vector Illustration</span>
+                            <span class="badge"><i class="fas fa-wand-magic-sparkles"></i> Photo Retouching</span>
+                            <span class="badge"><i class="fas fa-share-nodes"></i> Social Media Kits</span>
+                            <span class="badge"><i class="fas fa-font"></i> Typography & Layout</span>
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <div id="products-tab" class="tab-content">
                 <section>
                     <h2>My Digital Products</h2>
-                    <p style="margin-bottom: 2rem;">Check out my premium assets and templates available on Ko-fi to
-                        speed up your workflow.</p>
 
                     <div class="carousel-container">
                         <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
@@ -571,8 +547,7 @@
                         <div class="projects-grid">
 
                             <div class="project-card">
-                                <div class="project-image"><i class="fas fa-swatchbook"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Minimalist UI Kit Vol. 1</h3>
                                     <p>A comprehensive component library for Figma featuring 100+ responsive elements
@@ -585,8 +560,7 @@
                             </div>
 
                             <div class="project-card">
-                                <div class="project-image"><i class="fas fa-magic"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>Cinematic LUTs Pack</h3>
                                     <p>15 custom color grading presets for Premiere Pro and DaVinci Resolve to instantly
@@ -599,8 +573,7 @@
                             </div>
 
                             <div class="project-card">
-                                <div class="project-image"><i class="fas fa-layer-group"
-                                        style="font-size: 1.5rem; opacity: 0.5;"></i></div>
+                                <div class="project-image"></div>
                                 <div class="project-info">
                                     <h3>YouTube Thumbnail Templates</h3>
                                     <p>Fully editable PSD files optimized for high click-through rates across gaming and
@@ -620,8 +593,204 @@
                 </section>
             </div>
 
+            <div id="about-tab" class="tab-content">
+
+                <section>
+                    <h2>About Me</h2>
+                    <div class="about-text">
+                        <p>
+                            Hi! I’m a UI/UX designer, video editor, and creative developer with a background in Computer
+                            Engineering. I design intuitive web and mobile apps, craft engaging graphics and visual
+                            content, and produce high-impact videos—combining clean design with code to bring ideas to
+                            life.
+                        </p>
+                    </div>
+                    <div class="about-actions">
+                        <a href="Sahil_Khandale_Resume.pdf" class="cv-btn" download="Sahil_Khandale_Resume.pdf">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+                </section>
+
+                <div class="stats-strip">
+                    <div class="stat-box">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">40+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Code & Design Synergy</span>
+                    </div>
+                </div>
+
+                <section>
+                    <h2>All Tools & Skills</h2>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-pen-ruler"></i> UI/UX Design & Prototyping</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fab fa-figma"></i> Figma</span>
+                            <span class="badge"><i class="fas fa-pen-nib"></i> Adobe XD</span>
+                            <span class="badge"><i class="fas fa-gem"></i> Sketch</span>
+                            <span class="badge"><i class="fas fa-layer-group"></i> Framer</span>
+                            <span class="badge"><i class="fas fa-code"></i> Webflow</span>
+                            <span class="badge"><i class="fas fa-cube"></i> Spline 3D</span>
+                            <span class="badge"><i class="fas fa-mobile-screen"></i> ProtoPie</span>
+                            <span class="badge"><i class="fas fa-shapes"></i> Miro</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-code"></i> Frontend & Development</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="badge"><i class="fab fa-css3-alt"></i> CSS3</span>
+                            <span class="badge"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="badge"><i class="fas fa-code"></i> TypeScript</span>
+                            <span class="badge"><i class="fab fa-react"></i> React</span>
+                            <span class="badge"><i class="fas fa-wind"></i> Tailwind CSS</span>
+                            <span class="badge"><i class="fas fa-laptop-code"></i> VS Code</span>
+                            <span class="badge"><i class="fas fa-terminal"></i> Cursor</span>
+                            <span class="badge"><i class="fab fa-git-alt"></i> Git</span>
+                            <span class="badge"><i class="fab fa-github"></i> GitHub</span>
+                            <span class="badge"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="badge"><i class="fab fa-python"></i> Python</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-film"></i> Video Editing & Motion Graphics</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-video"></i> Premiere Pro</span>
+                            <span class="badge"><i class="fas fa-film"></i> After Effects</span>
+                            <span class="badge"><i class="fas fa-palette"></i> DaVinci Resolve</span>
+                            <span class="badge"><i class="fas fa-cut"></i> CapCut</span>
+                            <span class="badge"><i class="fas fa-clapperboard"></i> Final Cut Pro</span>
+                            <span class="badge"><i class="fas fa-cubes"></i> Blender 3D</span>
+                            <span class="badge"><i class="fas fa-video"></i> Runway Gen-2</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-image"></i> Graphic Design & Photo Editing</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-image"></i> Photoshop</span>
+                            <span class="badge"><i class="fas fa-vector-square"></i> Illustrator</span>
+                            <span class="badge"><i class="fas fa-sliders-h"></i> Lightroom</span>
+                            <span class="badge"><i class="fas fa-brush"></i> Canva</span>
+                            <span class="badge"><i class="fas fa-paint-brush"></i> Midjourney</span>
+                            <span class="badge"><i class="fas fa-wand-magic-sparkles"></i> Adobe Firefly</span>
+                            <span class="badge"><i class="fas fa-image"></i> Stable Diffusion</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-music"></i> Audio & Sound Production</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-sliders-h"></i> FL Studio</span>
+                            <span class="badge"><i class="fas fa-headphones"></i> Adobe Audition</span>
+                            <span class="badge"><i class="fas fa-wave-square"></i> Audacity</span>
+                            <span class="badge"><i class="fas fa-microphone"></i> ElevenLabs</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-brain"></i> AI & Workflow Collaboration</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-rocket"></i> Antigravity</span>
+                            <span class="badge"><i class="fas fa-robot"></i> ChatGPT</span>
+                            <span class="badge"><i class="fas fa-brain"></i> Claude</span>
+                            <span class="badge"><i class="fas fa-bolt"></i> Perplexity AI</span>
+                            <span class="badge"><i class="fab fa-jira"></i> Jira</span>
+                            <span class="badge"><i class="fas fa-book"></i> Notion</span>
+                            <span class="badge"><i class="fab fa-slack"></i> Slack</span>
+                            <span class="badge"><i class="fab fa-trello"></i> Trello</span>
+                            <span class="badge"><i class="fab fa-discord"></i> Discord</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3 class="tools-category-title"><i class="fas fa-layer-group"></i> Core Disciplines & Methodologies</h3>
+                        <div class="tools-badges">
+                            <span class="badge"><i class="fas fa-cubes"></i> Design Systems</span>
+                            <span class="badge"><i class="fas fa-users"></i> User Research</span>
+                            <span class="badge"><i class="fas fa-drafting-compass"></i> Wireframing</span>
+                            <span class="badge"><i class="fas fa-hand-pointer"></i> Interactive Prototyping</span>
+                            <span class="badge"><i class="fas fa-check-double"></i> Usability Testing</span>
+                            <span class="badge"><i class="fas fa-sitemap"></i> Information Architecture</span>
+                            <span class="badge"><i class="fas fa-palette"></i> Color Grading & LUTs</span>
+                            <span class="badge"><i class="fas fa-bezier-curve"></i> Motion Graphics</span>
+                            <span class="badge"><i class="fas fa-volume-up"></i> Sound Design & Mixing</span>
+                            <span class="badge"><i class="fas fa-chart-line"></i> High-CTR Thumbnails</span>
+                            <span class="badge"><i class="fas fa-fingerprint"></i> Brand Identity</span>
+                            <span class="badge"><i class="fas fa-font"></i> Typography & Layout</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Work Experience</h2>
+                    <div class="timeline-card">
+                        <h3>UI/UX Designer, Graphic Designer & Video Editor</h3>
+                        <div class="timeline-meta"><span class="timeline-company">Freelance</span> • Jan 2023 – Present
+                            • Nagpur, India</div>
+                        <ul class="timeline-points">
+                            <li>Designed end-to-end UI/UX interfaces, design systems, and Figma prototypes for diverse
+                                clients.</li>
+                            <li>Produced high-retention video edits and motion graphics tailored for creators and
+                                brands.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>User Experience Designer (Intern)</h3>
+                        <div class="timeline-meta"><span class="timeline-company">Tata STRIVE</span> • Jul 2025 – Dec
+                            2025 • Nagpur, India</div>
+                        <ul class="timeline-points">
+                            <li>Led user research, wireframing, and interactive prototyping for live digital products.
+                            </li>
+                            <li>Delivered intuitive, user-centric interface solutions aligned with product requirements.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>UI/UX Designer (Intern)</h3>
+                        <div class="timeline-meta"><span class="timeline-company">Vigo Technoworld Pvt Ltd</span> • Jan
+                            2025 – Jun 2025 • Nagpur, India</div>
+                        <ul class="timeline-points">
+                            <li>Crafted responsive web and mobile interfaces using Figma and Adobe XD.</li>
+                            <li>Conducted usability testing and collaborated with developers for pixel-perfect handoff.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Education</h2>
+                    <div class="timeline-card">
+                        <h3>B.Tech in Computer Engineering</h3>
+                        <div class="timeline-meta"><span class="timeline-company">Rashtrasant Tukdoji Maharaj Nagpur
+                                University</span> • 2021 – 2024</div>
+                        <div class="timeline-grade">
+                            <span class="grade-pill"><i class="fas fa-award"></i> CGPA: 7.0 / 10.0</span>
+                        </div>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>Diploma in Computer Engineering</h3>
+                        <div class="timeline-meta"><span class="timeline-company">Nagpur Institute of Technology</span>
+                            • 2019 – 2021</div>
+                        <div class="timeline-grade">
+                            <span class="grade-pill"><i class="fas fa-award"></i> Percentage: 85%</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
             <section class="ending-line">
-                <h2>Thank You!</h2>
+                <h2>Thank You</h2>
                 <p>
                     Thanks for visiting my portfolio. I’m always excited to create meaningful and user-focused digital
                     experiences.
@@ -635,6 +804,8 @@
         </footer>
 
     </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
     <script src="script.js"></script>
 </body>
