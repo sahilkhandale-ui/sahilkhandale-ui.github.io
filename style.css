@@ -1,20 +1,6 @@
-:root {
-    /* Light Theme Variables (Default) */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f4f4f5;
-    --text-primary: #09090b;
-    --text-secondary: #71717a;
-    --border-color: #e4e4e7;
-    --accent-hover: #000000;
-    --btn-bg: #f4f4f5;
-    --btn-hover: #e4e4e7;
-    --link-color: #09090b;
-    --grid-dot: rgba(0, 0, 0, 0.045);
-    --glow-rgb: 0, 0, 0;
-}
-
+:root,
 [data-theme="dark"] {
-    /* Deep Dark Theme Variables */
+    /* Deep Dark Theme Variables (Default) */
     --bg-primary: #09090b;
     --bg-secondary: #141416;
     --text-primary: #f4f4f5;
@@ -26,6 +12,21 @@
     --link-color: #f4f4f5;
     --grid-dot: rgba(255, 255, 255, 0.06);
     --glow-rgb: 255, 255, 255;
+}
+
+[data-theme="light"] {
+    /* Light Theme Variables */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f4f4f5;
+    --text-primary: #09090b;
+    --text-secondary: #71717a;
+    --border-color: #e4e4e7;
+    --accent-hover: #000000;
+    --btn-bg: #f4f4f5;
+    --btn-hover: #e4e4e7;
+    --link-color: #09090b;
+    --grid-dot: rgba(0, 0, 0, 0.045);
+    --glow-rgb: 0, 0, 0;
 }
 
 * {
@@ -761,20 +762,21 @@ p {
     z-index: 3;
 }
 
-.tab-btn.active::before {
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.24),
-        transparent
-    );
-}
-
+.tab-btn.active::before,
 [data-theme="dark"] .tab-btn.active::before {
     background: linear-gradient(
         90deg,
         transparent,
         rgba(0, 0, 0, 0.24),
+        transparent
+    );
+}
+
+[data-theme="light"] .tab-btn.active::before {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.24),
         transparent
     );
 }
@@ -1304,17 +1306,17 @@ section h2 {
     left: 0;
     width: 65%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.24),
-        transparent
-    );
     transform: translateX(-150%) skewX(-25deg);
     transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
     z-index: 5;
     will-change: transform;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 0, 0, 0.24),
+        transparent
+    );
 }
 
 [data-theme="dark"] .load-more-btn::before {
@@ -1322,6 +1324,15 @@ section h2 {
         90deg,
         transparent,
         rgba(0, 0, 0, 0.24),
+        transparent
+    );
+}
+
+[data-theme="light"] .load-more-btn::before {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.24),
         transparent
     );
 }

@@ -2,6 +2,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const htmlElement = document.documentElement;
 
+    // --- Safe Storage Helper (avoids SecurityError on file:/// or restricted environments) ---
+    function getStorage(key, fallback = null) {
+        try {
+            const val = localStorage.getItem(key);
+            return val !== null ? val : fallback;
+        } catch {
+            return fallback;
+        }
+    }
+
+    function setStorage(key, value) {
+        try {
+            localStorage.setItem(key, value);
+        } catch {
+            // Silently fallback if localStorage is blocked/sandboxed
+        }
+    }
+
     // --- Toast Notification Helper ---
     const toast = document.getElementById('toast');
     let toastTimeout;
@@ -16,25 +34,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2200);
     }
 
-    // --- Theme Toggle Logic ---
+    // --- Theme Toggle Logic (Default: Dark Mode) ---
     const themeToggleBtn = document.getElementById('themeToggle');
     const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
 
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        htmlElement.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme);
-    } else {
-        updateThemeIcon('light');
-    }
+    const savedTheme = getStorage('theme', 'dark');
+    htmlElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
 
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
+            const currentTheme = htmlElement.getAttribute('data-theme') || 'dark';
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
             htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+            setStorage('theme', newTheme);
             updateThemeIcon(newTheme);
         });
     }
@@ -43,8 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!themeIcon) return;
         if (theme === 'dark') {
             themeIcon.className = 'fas fa-sun';
+            themeToggleBtn?.setAttribute('aria-label', 'Switch to Light Theme');
+            themeToggleBtn?.setAttribute('title', 'Switch to Light Theme (Press T)');
         } else {
             themeIcon.className = 'fas fa-moon';
+            themeToggleBtn?.setAttribute('aria-label', 'Switch to Dark Theme');
+            themeToggleBtn?.setAttribute('title', 'Switch to Dark Theme (Press T)');
         }
     }
 
@@ -63,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setMotionState(state, notify = false) {
         htmlElement.setAttribute('data-motion', state);
-        localStorage.setItem('motion', state);
+        setStorage('motion', state);
 
         if (!motionToggleBtn) return;
 
@@ -89,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const savedMotion = localStorage.getItem('motion');
+    const savedMotion = getStorage('motion');
     const systemPrefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const initialMotion = savedMotion ? savedMotion : (systemPrefersReduced ? 'reduced' : 'full');
     setMotionState(initialMotion, false);
