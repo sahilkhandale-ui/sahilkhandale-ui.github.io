@@ -365,25 +365,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
-    // --- Live Timezone Clock (Nagpur, IST) ---
-    const liveTimeEl = document.getElementById('liveTime');
-    function updateLiveTime() {
-        if (!liveTimeEl) return;
-        try {
-            const now = new Date();
-            const timeStr = new Intl.DateTimeFormat('en-US', {
-                timeZone: 'Asia/Kolkata',
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: true
-            }).format(now);
-            liveTimeEl.textContent = `Nagpur • ${timeStr} IST`;
-        } catch (err) {
-            liveTimeEl.textContent = 'Nagpur, IN';
-        }
-    }
-    updateLiveTime();
-    setInterval(updateLiveTime, 30000);
 
     // --- Quick Copy Email Toast ---
     const emailLink = document.querySelector('a[href^="mailto:"]');

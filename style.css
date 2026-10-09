@@ -239,130 +239,7 @@ p {
     }
 }
 
-.status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    font-size: 0.72rem;
-    font-weight: 500;
-    padding: 0.25rem 0.6rem;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    letter-spacing: 0.01em;
-}
 
-/* Radar Ripple Loop on Status Pulse */
-.status-pulse {
-    position: relative;
-    width: 6px;
-    height: 6px;
-    background-color: #10b981;
-    border-radius: 0;
-    display: inline-block;
-    animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.status-pulse::after {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border: 1px solid #10b981;
-    border-radius: 0;
-    pointer-events: none;
-    animation: radarRipple 2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
-}
-
-@keyframes radarRipple {
-    0% {
-        transform: scale(0.8);
-        opacity: 0.9;
-    }
-    100% {
-        transform: scale(2.4);
-        opacity: 0;
-    }
-}
-
-@keyframes livePulse {
-    0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.35;
-        transform: scale(0.8);
-    }
-}
-
-/* Audio Waveform Equalizer Visualizer Loop */
-.audio-eq {
-    display: inline-flex;
-    align-items: flex-end;
-    gap: 2px;
-    height: 12px;
-    padding: 0 1px;
-}
-
-.eq-bar {
-    width: 2px;
-    background-color: var(--text-primary);
-    border-radius: 0;
-}
-
-.eq-bar.bar-1 {
-    height: 4px;
-    animation: eqBounce1 0.75s ease-in-out infinite alternate;
-}
-
-.eq-bar.bar-2 {
-    height: 9px;
-    animation: eqBounce2 0.9s ease-in-out infinite alternate;
-}
-
-.eq-bar.bar-3 {
-    height: 6px;
-    animation: eqBounce3 0.65s ease-in-out infinite alternate;
-}
-
-.eq-bar.bar-4 {
-    height: 11px;
-    animation: eqBounce4 0.85s ease-in-out infinite alternate;
-}
-
-@keyframes eqBounce1 {
-    0% { height: 3px; }
-    100% { height: 11px; }
-}
-
-@keyframes eqBounce2 {
-    0% { height: 11px; }
-    100% { height: 4px; }
-}
-
-@keyframes eqBounce3 {
-    0% { height: 4px; }
-    100% { height: 12px; }
-}
-
-@keyframes eqBounce4 {
-    0% { height: 12px; }
-    100% { height: 5px; }
-}
-
-.status-sep {
-    color: var(--border-color);
-    font-size: 0.7rem;
-}
-
-.status-time {
-    color: var(--text-primary);
-    font-family: monospace;
-    font-size: 0.7rem;
-}
 
 .header-controls {
     display: inline-flex;
@@ -1544,46 +1421,7 @@ footer {
         display: none !important;
     }
 
-    /* Header Top & Status Pill on Mobile */
-    .header-top {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        gap: 0.85rem;
-    }
 
-    .profile-group {
-        display: contents;
-    }
-
-    .profile-hud-wrap {
-        order: 1;
-    }
-
-    .header-controls {
-        order: 2;
-    }
-
-    .status-pill {
-        order: 3;
-        display: inline-flex;
-        align-items: center;
-        flex-wrap: nowrap;
-        white-space: nowrap;
-        gap: 0.35rem;
-        padding: 0.25rem 0.55rem;
-        font-size: 0.68rem;
-        max-width: 100%;
-        overflow-x: auto;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        margin-top: 0.15rem;
-    }
-
-    .status-pill::-webkit-scrollbar {
-        display: none;
-    }
 
     .marquee-strip {
         margin-left: -1.25rem;
@@ -1826,16 +1664,7 @@ footer {
     background-position: 0 0 !important;
 }
 
-[data-motion="reduced"] .status-pulse {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-}
 
-[data-motion="reduced"] .status-pulse::after {
-    animation: none !important;
-    display: none !important;
-}
 
 [data-motion="reduced"] .hud-corner,
 [data-motion="reduced"] .hud-scanline,
@@ -1846,11 +1675,6 @@ footer {
 
 [data-motion="reduced"] .hud-scanline {
     display: none !important;
-}
-
-[data-motion="reduced"] .audio-eq .eq-bar {
-    animation: none !important;
-    height: 5px !important;
 }
 
 [data-motion="reduced"] .marquee-track {
