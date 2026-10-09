@@ -798,6 +798,7 @@ p {
 
 .tabs {
     display: flex;
+    align-items: center;
     gap: 0.75rem;
     border-bottom: 1px dotted var(--border-color);
     margin-bottom: 1.75rem;
@@ -815,7 +816,10 @@ p {
 .tab-btn {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    padding: 0.52rem 1.1rem;
+    padding: 0 1.15rem;
+    height: 42px;
+    min-height: 42px;
+    box-sizing: border-box;
     color: var(--text-secondary);
     font-size: 0.9rem;
     font-family: inherit;
@@ -825,7 +829,6 @@ p {
     position: relative;
     overflow: hidden;
     box-shadow: 2px 2px 0px var(--border-color);
-    will-change: transform;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -834,8 +837,7 @@ p {
     transition: color 0.2s ease, 
                 background-color 0.2s ease, 
                 border-color 0.2s ease, 
-                transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), 
-                box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+                box-shadow 0.2s ease;
 }
 
 /* Diagonal Specular Sheen on Tab Button Hover */
@@ -867,19 +869,18 @@ p {
     color: var(--text-primary);
     background-color: var(--bg-primary);
     border-color: var(--text-primary);
-    transform: translate(-3px, -3px);
-    box-shadow: 5px 5px 0px var(--text-primary);
+    box-shadow: 2px 2px 0px var(--text-primary);
     z-index: 2;
 }
 
-/* Active Tab Button - Elevated Brutalist Stance */
+/* Active Tab Button - Flush Uniform Alignment */
 .tab-btn.active {
     background-color: var(--text-primary);
     color: var(--bg-primary);
     border-color: var(--text-primary);
     font-weight: 600;
-    transform: translate(-2px, -2px);
-    box-shadow: 3px 3px 0px var(--text-secondary);
+    transform: none;
+    box-shadow: 2px 2px 0px var(--text-secondary);
     z-index: 3;
 }
 
@@ -902,69 +903,18 @@ p {
 }
 
 .tab-btn.active:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 5px 5px 0px var(--text-secondary);
+    transform: none;
+    box-shadow: 2px 2px 0px var(--text-secondary);
 }
 
 /* Tactile Active Press Down Effect */
-.tab-btn:active {
-    transform: translate(0px, 0px) !important;
-    box-shadow: 1px 1px 0px var(--text-primary) !important;
-    transition-duration: 0.08s;
-}
-
+.tab-btn:active,
 .tab-btn.active:active {
-    transform: translate(0px, 0px) !important;
+    transform: none !important;
     box-shadow: 1px 1px 0px var(--text-secondary) !important;
     transition-duration: 0.08s;
 }
 
-.tab-badge {
-    display: inline-flex;
-    align-items: center;
-    font-size: 0.65rem;
-    font-weight: 600;
-    padding: 0.15rem 0.5rem;
-    border-radius: 0;
-    background-color: var(--bg-primary);
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
-    margin-left: 0.45rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    vertical-align: middle;
-    white-space: nowrap;
-    line-height: 1;
-    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-    animation: badgePulse 2.8s ease-in-out infinite;
-}
-
-@keyframes badgePulse {
-    0%, 100% {
-        opacity: 0.85;
-    }
-    50% {
-        opacity: 1;
-        box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
-    }
-}
-
-.tab-btn:hover .tab-badge {
-    border-color: var(--text-primary);
-    color: var(--text-primary);
-}
-
-.tab-btn.active .tab-badge {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: var(--bg-primary);
-    border-color: rgba(255, 255, 255, 0.35);
-}
-
-[data-theme="dark"] .tab-btn.active .tab-badge {
-    background-color: rgba(0, 0, 0, 0.25);
-    color: var(--bg-primary);
-    border-color: rgba(0, 0, 0, 0.4);
-}
 
 .tab-content {
     display: none;
@@ -1236,6 +1186,7 @@ section h2 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1593,8 +1544,45 @@ footer {
         display: none !important;
     }
 
-    .status-pill {
+    /* Header Top & Status Pill on Mobile */
+    .header-top {
+        display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.85rem;
+    }
+
+    .profile-group {
+        display: contents;
+    }
+
+    .profile-hud-wrap {
+        order: 1;
+    }
+
+    .header-controls {
+        order: 2;
+    }
+
+    .status-pill {
+        order: 3;
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        gap: 0.35rem;
+        padding: 0.25rem 0.55rem;
+        font-size: 0.68rem;
+        max-width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        margin-top: 0.15rem;
+    }
+
+    .status-pill::-webkit-scrollbar {
+        display: none;
     }
 
     .marquee-strip {
@@ -1641,8 +1629,10 @@ footer {
         white-space: nowrap;
         font-size: 0.82rem;
         font-weight: 500;
-        padding: 0.45rem 0.85rem;
+        padding: 0 0.85rem;
+        height: 36px;
         min-height: 36px;
+        box-sizing: border-box;
         box-shadow: 2px 2px 0px var(--border-color);
         -webkit-tap-highlight-color: transparent;
         transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
@@ -1658,7 +1648,7 @@ footer {
         }
 
         .tab-btn.active:hover {
-            transform: translate(-1px, -1px) !important;
+            transform: none !important;
             box-shadow: 2px 2px 0px var(--text-secondary) !important;
             background-color: var(--text-primary) !important;
             border-color: var(--text-primary) !important;
@@ -1667,7 +1657,7 @@ footer {
     }
 
     .tab-btn:active {
-        transform: translate(0px, 0px) !important;
+        transform: none !important;
         box-shadow: 1px 1px 0px var(--text-primary) !important;
     }
 
@@ -1676,22 +1666,15 @@ footer {
         color: var(--bg-primary);
         border-color: var(--text-primary);
         font-weight: 600;
-        transform: translate(-1px, -1px);
+        transform: none;
         box-shadow: 2px 2px 0px var(--text-secondary);
     }
 
     .tab-btn.active:active {
-        transform: translate(0px, 0px) !important;
+        transform: none !important;
         box-shadow: 1px 1px 0px var(--text-secondary) !important;
     }
 
-    .tab-badge {
-        font-size: 0.58rem;
-        padding: 0.1rem 0.35rem;
-        margin-left: 0.35rem;
-        line-height: 1;
-        white-space: nowrap;
-    }
 
     .tab-content.active {
         animation: mobileTabSwitch 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -1884,10 +1867,6 @@ footer {
     display: none !important;
 }
 
-[data-motion="reduced"] .tab-badge {
-    animation: none !important;
-    box-shadow: none !important;
-}
 
 [data-motion="reduced"] .tab-content.active {
     animation: none !important;

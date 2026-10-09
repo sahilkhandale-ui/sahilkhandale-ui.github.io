@@ -120,9 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const thumbWidth = Math.max(trackWidth * ratio, 28);
         thumbEl.style.width = `${thumbWidth}px`;
 
-        const maxScroll = scrollWidth - clientWidth;
+        const maxScroll = Math.max(1, scrollWidth - clientWidth);
         const progress = Math.min(Math.max(scrollLeft / maxScroll, 0), 1);
-        const maxThumbTranslate = trackWidth - thumbWidth;
+        const maxThumbTranslate = Math.max(0, trackWidth - thumbWidth);
         const translateX = progress * maxThumbTranslate;
 
         thumbEl.style.transform = `translateX(${translateX}px)`;
@@ -274,6 +274,13 @@ document.addEventListener('DOMContentLoaded', () => {
             let startX = 0;
             let scrollStart = 0;
 
+            const stopDrag = () => {
+                if (isDown) {
+                    isDown = false;
+                    grid.style.scrollBehavior = '';
+                }
+            };
+
             grid.addEventListener('mousedown', (e) => {
                 if (window.innerWidth > 768) return;
                 isDown = true;
@@ -282,19 +289,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollStart = grid.scrollLeft;
             });
 
-            window.addEventListener('mouseup', () => {
-                if (isDown) {
-                    isDown = false;
-                    grid.style.scrollBehavior = 'auto';
-                }
-            });
-
-            grid.addEventListener('mouseleave', () => {
-                if (isDown) {
-                    isDown = false;
-                    grid.style.scrollBehavior = 'auto';
-                }
-            });
+            grid.addEventListener('mouseleave', stopDrag);
+            window.addEventListener('mouseup', stopDrag, { once: false });
 
             grid.addEventListener('mousemove', (e) => {
                 if (!isDown || window.innerWidth > 768) return;
@@ -446,12 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const rotateX = ((y - centerY) / centerY) * -maxTilt;
                         const rotateY = ((x - centerX) / centerX) * maxTilt;
 
-                        let offset = baseOffset;
-                        if (el.classList.contains('active')) {
-                            offset = 'translate(-2px, -2px)';
-                        }
-
-                        el.style.transform = `perspective(${perspective}px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) ${offset}`;
+                        el.style.transform = `perspective(${perspective}px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) ${baseOffset}`;
                     });
                 }
             };
@@ -485,8 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
     apply3DTilt('.stat-box', 8, 450, 'translate(-3px, -3px)');
     apply3DTilt('.wip-banner', 5, 650, 'translate(-3px, -3px)');
 
-    // 2. Buttons (Tabs, Load More, Action buttons, Download CV, Theme toggle, Socials, Badges)
-    apply3DTilt('.tab-btn', 8, 400, 'translate(-3px, -3px)');
+    // 2. Buttons & Actions (Load More, Action buttons, Download CV, Theme toggle, Socials, Badges)
     apply3DTilt('.load-more-btn', 7, 400, 'translate(-3px, -3px)');
     apply3DTilt('.btn:not(.wip-btn)', 8, 350, 'translate(-2px, -2px)');
     apply3DTilt('.cv-btn', 7, 400, 'translate(-2px, -2px)');
